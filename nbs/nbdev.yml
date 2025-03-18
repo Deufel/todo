@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "todo"
+  site-url: "https://Deufel.github.io/todo"
+  description: "Another ToDo App"
+  repo-branch: master
+  repo-url: "https://github.com/Deufel/todo"
