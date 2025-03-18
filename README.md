@@ -6,62 +6,84 @@
 This file will become your README and also the index of your
 documentation.
 
-## Developer Guide
+# FastHTML Todo Application Guide
 
-If you are new to using `nbdev` here are some useful pointers to get you
-started.
+> A guide to using the Todo application with nbdev and FastHTML
 
-### Install todo in Development mode
+## Introduction
 
-``` sh
-# make sure todo package is installed in development mode
-$ pip install -e .
+This is a simple Todo application built with FastHTML and nbdev. It
+demonstrates how to structure a FastHTML application using nbdev’s
+notebook-based development approach.
 
-# make changes under nbs/ directory
-# ...
+## Getting Started
 
-# compile to have changes apply to todo
-$ nbdev_prepare
-```
+To run the application:
 
-## Usage
+Copy from app import run_app
 
-### Installation
+run_app()
 
-Install latest from the GitHub
-[repository](https://github.com/Deufel/todo):
+## Project Structure
 
-``` sh
-$ pip install git+https://github.com/Deufel/todo.git
-```
+This project is organized into several modules:
 
-or from [conda](https://anaconda.org/Deufel/todo)
+- **core**: Core utilities and configurations
+- **db**: Database models and operations
+- **components**: UI components for rendering Todos
+- **auth**: Authentication functionality
+- **todos**: Todo management routes
+- **app**: Main application assembly
 
-``` sh
-$ conda install -c Deufel todo
-```
+## Features
 
-or from [pypi](https://pypi.org/project/todo/)
+- User authentication
+- Create, read, update, and delete Todos
+- Drag and drop reordering of Todos
+- Markdown support in Todo details
 
-``` sh
-$ pip install todo
-```
+## Database Schema
 
-### Documentation
+The application uses SQLite with FastLite, which supports the
+MiniDataAPI spec:
 
-Documentation can be found hosted on this GitHub
-[repository](https://github.com/Deufel/todo)’s
-[pages](https://Deufel.github.io/todo/). Additionally you can find
-package manager specific guidelines on
-[conda](https://anaconda.org/Deufel/todo) and
-[pypi](https://pypi.org/project/todo/) respectively.
+Copy from db import db, Todo, User
 
-## How to use
+Database tables print(f”Tables: {list(db.t.keys())}“)
 
-Fill me in please! Don’t forget code examples:
+Todo schema print(f”Todo fields: {Todo.annotations}“)
+
+## Authentication
+
+Authentication is handled with session-based auth and Beforeware:
+
+Copy from auth import before, login_redir
+
+The beforeware checks if a user is authenticated and redirects to login
+if not
+
+## Todo Management
+
+The main functionality is in the todos module:
+
+Copy from todos import todo_routes
+
+Routes include: GET / - Main todo list POST / - Create new todo PUT / -
+Update todo DELETE /todos/{id} - Delete todo GET /todos/{id} - View todo
+details GET /edit/{id} - Edit todo form
+
+## Extending the Application
+
+To add new features, create a new notebook with appropriate routes and
+import it in app.ipynb.
+
+## Deployment
+
+To deploy this application:
+
+1.  Export the nbdev project
+2.  Run the main app module
 
 ``` python
-1+1
+nbdev_export python -m todo_app.app
 ```
-
-    2

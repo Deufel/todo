@@ -3,8 +3,8 @@ website:
     contents:
       - index.ipynb
       - 00_core.ipynb
-      - 01_models.ipynb
-      - 02_database.ipynb
-      - 03_components.ipynb
+      - 01_db.ipynb
+      - 02_components.ipynb
+      - 03_auth.ipynb
       - 04_routes.ipynb
       - 05_app.ipynb
