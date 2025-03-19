@@ -2,9 +2,5 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 00_core.ipynb
-      - 01_db.ipynb
-      - 02_components.ipynb
-      - 03_auth.ipynb
-      - 04_routes.ipynb
-      - 05_app.ipynb
+      - 00_styles.ipynb
+      - 01_app.ipynb

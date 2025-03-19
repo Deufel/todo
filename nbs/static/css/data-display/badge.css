@@ -1,0 +1,120 @@
+@layer components.base {
+  :where(.badge) {
+    --_bg-color: var(--primary);
+    --_border-color: var(--primary);
+    /* Automatic text color contrast using LCH */
+    --_color: lch(from var(--_bg-color) calc((50 - l) * infinity) 0 0);
+    --_inset-offset: calc(16px - var(--size-1)); /* Reduced by offset amount */
+    --_inset: auto auto calc(100% - var(--_inset-offset))
+      calc(100% - var(--_inset-offset));
+    --_translate: 0;
+    --_font-size: var(--font-size-xs, 0.75rem);
+    --_block-size: var(--size-3); /* Small size by default */
+    --_min-inline-size: var(--size-3); /* Small size by default */
+    --_padding-inline: var(--size-1);
+    --_dot-size: var(--size-1); /* Small dot by default */
+    --_border-width: var(--border-width, 1px);
+    --_border-radius: 100vmax;
+
+    display: inline-flex;
+    position: relative;
+
+    &::after {
+      background-color: var(--_bg-color);
+      border: var(--_border-width) solid var(--_border-color);
+      border-radius: var(--_border-radius);
+      color: var(--_color);
+      content: attr(aria-label);
+      font-size: var(--_font-size);
+      font-weight: 500;
+      block-size: var(--_block-size);
+      line-height: var(--_block-size);
+      min-inline-size: var(--_min-inline-size);
+      padding-inline: var(--_padding-inline);
+      inset: var(--_inset);
+      position: absolute;
+      text-align: center;
+      translate: var(--_translate);
+      transition: opacity 0.2s var(--ease-out-1);
+      inline-size: max-content;
+
+      /* Vertical centering fix */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Alignment */
+    &.start-start {
+      --_inset: auto calc(100% - var(--_inset-offset))
+        calc(100% - var(--_inset-offset)) auto;
+    }
+    &.start-end {
+      --_inset: auto auto calc(100% - var(--_inset-offset))
+        calc(100% - var(--_inset-offset));
+    }
+    &.end-start {
+      --_inset: calc(100% - var(--_inset-offset))
+        calc(100% - var(--_inset-offset)) auto auto;
+    }
+    &.end-end {
+      --_inset: calc(100% - var(--_inset-offset)) auto auto
+        calc(100% - var(--_inset-offset));
+    }
+
+    /* Dot */
+    &.dot {
+      --_inset: calc(0px - var(--size-1)) calc(-1px - var(--size-1)) auto auto;
+      &::after {
+        content: "";
+        min-inline-size: var(--_dot-size);
+        block-size: var(--_dot-size);
+        inline-size: var(--_dot-size);
+        padding: 0;
+      }
+    }
+
+    /* Visibility */
+    &.invisible {
+      &::after {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    /* Colors */
+    &.error,
+    &.good,
+    &.ok,
+    &.warning {
+      --_bg-color: var(--color-8);
+      --_border-color: var(--color-8);
+      /* Auto-contrast text color is recalculated when background changes */
+    }
+  }
+
+  [dir="rtl"] {
+    :where(.badge) {
+      --_inset: auto calc(100% - var(--_inset-offset)) calc(100% - var(--_inset-offset)) auto;
+
+      /* Alignment */
+      &.start-start {
+        --_inset: auto auto calc(100% - var(--_inset-offset)) calc(100% - var(--_inset-offset));
+      }
+      &.start-end {
+        --_inset: auto calc(100% - var(--_inset-offset)) calc(100% - var(--_inset-offset)) auto;
+      }
+      &.end-start {
+        --_inset: calc(100% - var(--_inset-offset)) auto auto calc(100% - var(--_inset-offset));
+      }
+      &.end-end {
+        --_inset: calc(100% - var(--_inset-offset)) calc(100% - var(--_inset-offset)) auto auto;
+      }
+
+      /* Dot RTL handling */
+      &.dot {
+        --_inset: calc(0px - var(--size-1)) auto auto calc(-1px - var(--size-1));
+      }
+    }
+  }
+}

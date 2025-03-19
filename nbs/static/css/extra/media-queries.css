@@ -1,0 +1,34 @@
+/* Device preferences */
+@media (prefers-color-scheme: dark) { :root { --OSdark: 1; } }
+@media (prefers-color-scheme: light) { :root { --OSlight: 1; } }
+@media (prefers-reduced-motion: no-preference) { :root { --motionOK: 1; } }
+@media (prefers-reduced-motion: reduce) { :root { --motionNotOK: 1; } }
+@media (prefers-contrast: more) { :root { --highContrast: 1; } }
+@media (prefers-contrast: less) { :root { --lowContrast: 1; } }
+
+/* Orientation */
+@media (orientation: portrait) { :root { --portrait: 1; } }
+@media (orientation: landscape) { :root { --landscape: 1; } }
+
+/* Device capabilities */
+@media (hover) and (pointer: fine) { :root { --mouse: 1; } }
+@media (hover: none) and (pointer: coarse) { :root { --touch: 1; } }
+
+/* Breakpoints */
+/* Mobile first approach */
+@media (min-width: 240px) { :root { --xxs-n-above: 1; } }
+@media (min-width: 360px) { :root { --xs-n-above: 1; } }
+@media (min-width: 480px) { :root { --sm-n-above: 1; } }
+@media (min-width: 768px) { :root { --md-n-above: 1; } }
+@media (min-width: 1024px) { :root { --lg-n-above: 1; } }
+@media (min-width: 1440px) { :root { --xl-n-above: 1; } }
+@media (min-width: 1920px) { :root { --xxl-n-above: 1; } }
+
+/* Desktop first approach */
+@media (max-width: 1919px) { :root { --xxl-n-below: 1; } }
+@media (max-width: 1439px) { :root { --xl-n-below: 1; } }
+@media (max-width: 1023px) { :root { --lg-n-below: 1; } }
+@media (max-width: 767px) { :root { --md-n-below: 1; } }
+@media (max-width: 479px) { :root { --sm-n-below: 1; } }
+@media (max-width: 359px) { :root { --xs-n-below: 1; } }
+@media (max-width: 239px) { :root { --xxs-n-below: 1; } }

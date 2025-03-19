@@ -1,0 +1,52 @@
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-7) transparent;
+  transition: scrollbar-color 0.3s ease;
+  overscroll-behavior: contain; /* Prevent scroll escaping/chaining */
+}
+html:not(:hover) {
+  scrollbar-color: var(--gray-7) transparent;
+}
+html::-webkit-scrollbar {
+  width: 8px; /* Fixed width to prevent layout shifts */
+  height: 8px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-7);
+  border-radius: 4px;
+  width: 8px; /* Active thumb width */
+}
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+html:not(:hover)::-webkit-scrollbar-thumb {
+  background-color: var(--gray-7);
+  width: 6px; /* Non-active thumb width */
+  margin: 0 1px; /* Center the smaller thumb in the track */
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-7) transparent;
+  transition: scrollbar-color 0.3s ease;
+  overscroll-behavior: contain; /* Prevent scroll escaping/chaining */
+}
+*:not(:hover) {
+  scrollbar-color: var(--gray-7) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px; /* Fixed width to prevent layout shifts */
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-7);
+  border-radius: 4px;
+  width: 8px; /* Active thumb width */
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+*:not(:hover)::-webkit-scrollbar-thumb {
+  background-color: var(--gray-7);
+  width: 6px; /* Non-active thumb width */
+  margin: 0 1px; /* Center the smaller thumb in the track */
+}
